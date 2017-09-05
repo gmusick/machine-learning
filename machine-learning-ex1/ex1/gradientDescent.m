@@ -18,12 +18,13 @@ for iter = 1:num_iters
     %
 
     hypothesis = X * theta;
-    errorOne = (hypothesis - y)' * X(:, 1);
-    errorTwo = (hypothesis - y)' * X(:, 2);
+    errors = hypothesis - y;
+    cost = [
+      errors' * X(:, 1);
+      errors' * X(:, 2);
+    ];
 
-    theta(1) = theta(1) - (alpha * errorOne) / m;
-    theta(2) = theta(2) - (alpha * errorTwo) / m;
-
+    theta = theta - (alpha * cost / m);
 
     % ============================================================
 
