@@ -18,7 +18,7 @@ for iter = 1:num_iters
     %
 
     hypothesis = X * theta;
-    cost = (hypothesis - y) * X';
+    cost = X' * (hypothesis - y);
     theta = theta - (alpha * cost / m);
 
     % ============================================================
